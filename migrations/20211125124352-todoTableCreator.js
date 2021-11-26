@@ -15,22 +15,22 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.createTable('users', {
+  return db.createTable('todos', {
     id: {
       type: 'int',
       primaryKey: true,
       autoIncrement: true,
       notNull: true
     },
-    fullname: {
+    user_id: {
+      type: 'int',
+      notNull: true
+    },
+    title: {
       type: 'string',
       notNull: true
     },
-    email: {
-      type: 'string',
-      notNull: true
-    },
-    password: {
+    content: {
       type: 'string',
       notNull: true
     },
@@ -50,7 +50,7 @@ exports.up = function(db) {
 };
 
 exports.down = function(db) {
-  return db.dropTable('users');
+  return db.dropTable('todos');
 };
 
 exports._meta = {
